@@ -1,0 +1,20 @@
+<!--pages/chat/chat.wxml-->
+<view class="container">
+    <view class="chat-container">
+        <scroll-view scroll-y="true" class="chat-content" scroll-into-view="{{scrollId}}">
+            <block wx:for="{{messages}}" wx:key="index">
+                <view id="message{{index}}" class="message {{item.type}}">
+                    <view class="message-avatar">
+                        <image style="height:30rpx;width:30rpx" src="../../images/head.png" mode="aspectFill"></image>
+                    </view>
+                    <text>{{item.text}} </text>
+                </view>
+            </block>
+        </scroll-view>
+
+    </view>
+    <view class="input-container">
+        <input class="chat-input" value="{{inputValue}}" bindinput="onInput" bindconfirm="onSend" placeholder="请输入内容..." />
+        <button class="send-button" bindtap="onSend">发送</button>
+    </view>
+</view>
